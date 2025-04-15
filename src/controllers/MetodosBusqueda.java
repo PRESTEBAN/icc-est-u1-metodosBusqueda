@@ -1,34 +1,59 @@
 package controllers;
 
+import models.Person;
 import views.ShowConsole;
 
 public class MetodosBusqueda{
 
-    ShowConsole sc = new ShowConsole();
-
     int arreglo[];
-    boolean encontrado = false;
+
+    private Person[] people;
+
+    private ShowConsole sc;
+
+    public MetodosBusqueda(Person[] persons){
+        sc = new ShowConsole();
+        this.people = persons;
+    }
 
     public int busquedaLineal(int arreglo[], int valor){
 
         int n = arreglo.length;
 
         for (int i = 0; i < n; i++) {
-            if (arreglo[i] == valor) {
-                System.out.println("El valor que buscaste esta en la posición " + i + " y es el valor: " + arreglo[i]);
-                encontrado = true;
-                break;
-
-            }
-        }
-
-        if (!encontrado) {
-            System.out.println("El valor no se encuentra en el arreglo");
-        }
-
-        return 1;
+            if (arreglo[i] == valor) 
+            return i;
         
+        }
+        return -1;
     }
 
+    /* CON FOR EACH:
+    
+    public int findPersonByCode(int code){
+        
+        int cont = 0;
+        for (Person p : people) {
+            if(p.getCode()==code){
+                return cont;
+            }
+            cont++;
+        }
 
+        return -1;
+    }*/ 
+
+    public int findPersonByCode(int code){
+        for (int i = 0; i < people.length; i++) {
+            if (people[i].getCode() == code) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void showPersonByCode(int code){
+        
+    }
+    
 }
