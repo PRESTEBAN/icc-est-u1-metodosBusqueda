@@ -14,6 +14,7 @@ public class MetodosBusqueda{
     public MetodosBusqueda(Person[] persons){
         sc = new ShowConsole();
         this.people = persons;
+        showPersonByCode();
     }
 
     public int busquedaLineal(int arreglo[], int valor){
@@ -52,8 +53,17 @@ public class MetodosBusqueda{
         return -1;
     }
 
-    public void showPersonByCode(int code){
-        
+    public void showPersonByCode(){
+        int codeToFind = sc.getCode();
+        int indexPerson = findPersonByCode(codeToFind);
+        if (indexPerson >= 0) {
+            sc.showMessage("Persona encontrada");
+            // el show message no acepta mostrar una clase porque solo muestra string sc.showMessage(people[indexPerson]);
+            //Mientras que el sout si puede mostrar
+            System.out.println(people[indexPerson].toString());
+        }else{
+            sc.showMessage("Persona con codigo " + codeToFind + " no encontrada");
+        }
     }
     
 }

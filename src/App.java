@@ -1,12 +1,9 @@
 import controllers.MetodosBusqueda;
-import java.util.Scanner;
 import models.Person;
 
 public class App {
     public static void main(String[] args) throws Exception {
         int[] arreglo = {3, 7, 2, 9, 4, 10};
-
-        Scanner scanner = new Scanner(System.in);
 
         Person[] personas = new Person[7];        
 
@@ -19,9 +16,10 @@ public class App {
         personas[6] = new Person(107, "Pedro");
         MetodosBusqueda mB = new MetodosBusqueda(personas);
 
-        System.out.println("Ingresa el valor a encontrar en el arreglo: ");
-        int valor = scanner.nextInt();
+        int valor = 4;
         mB.busquedaLineal(arreglo, valor);
+
+
 
     }
 }
